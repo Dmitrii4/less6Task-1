@@ -10,7 +10,7 @@ public class StatisticsService {
     }
 
     public int averageSalesPerMonth(int[] purchases){
-        int calculateSum = (int) calculateSum(purchases);
+        int calculateSum =  calculateSum(purchases);
 
         int amount = purchases.length;
 
@@ -24,7 +24,7 @@ public class StatisticsService {
         int currentMonth = 0 ;
         int lastMonthWithMaximumSales = 0 ;
         for (int purchase : purchases) {
-            currentMonth = currentMonth + 1 ;
+            currentMonth++ ;
             if (currentMax <= purchase){
                 currentMax = purchase ;
                 lastMonthWithMaximumSales = currentMonth ;
@@ -38,7 +38,7 @@ public class StatisticsService {
         int currentMonth = 0 ;
         int lastMonthWithMinimumSales = 0 ;
         for (int purchase : purchases) {
-            currentMonth = currentMonth + 1 ;
+            currentMonth++ ;
             if (currentMin >= purchase){
                 currentMin = purchase ;
                 lastMonthWithMinimumSales = currentMonth ;
@@ -53,7 +53,7 @@ public class StatisticsService {
         int amountOfMonthsWithBelowAverageSales = 0 ;
         for (int purchase : purchases) {
             if (averageSalesPerMonth > purchase){
-                amountOfMonthsWithBelowAverageSales = amountOfMonthsWithBelowAverageSales + 1;
+                amountOfMonthsWithBelowAverageSales++ ;
             }
         }
         return amountOfMonthsWithBelowAverageSales ;
@@ -63,8 +63,8 @@ public class StatisticsService {
         int averageSalesPerMonth = averageSalesPerMonth(purchases);
         int amountOfMonthsWithWhichAverageSales = 0 ;
         for (int purchase : purchases) {
-            if (averageSalesPerMonth > purchase){
-                amountOfMonthsWithWhichAverageSales = amountOfMonthsWithWhichAverageSales + 1;
+            if (averageSalesPerMonth < purchase){
+                amountOfMonthsWithWhichAverageSales++ ;
             }
         }
         return amountOfMonthsWithWhichAverageSales ;
